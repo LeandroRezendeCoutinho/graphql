@@ -13,7 +13,7 @@ export const createCache = () => {
 }
 
 // getToken from meta tags
-cons getToken = () =>  document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const getToken = () =>  document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const token = getToken();
 const setTokenForOperation = async operation =>
 operation.setContext({
