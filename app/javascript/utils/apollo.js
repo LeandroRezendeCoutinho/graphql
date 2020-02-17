@@ -42,3 +42,19 @@ const createLinkWithToken = () =>
           };
       })
   );
+
+// log errors
+const logError = (error) => console.log(error);
+
+const createErrorLink = () => onError(({graphQLErrors, networkError, operation}) => {
+  if (graphQLErrors) {
+    logError('GraphQL - Error', {
+      errors: graphQLErrors,
+      operarionName: operation.operationName,
+      variables: operation.variables,
+    })
+  }
+  if (networkError) {
+    logError('GraphQL NetWorkError', networkError);
+  }
+})
