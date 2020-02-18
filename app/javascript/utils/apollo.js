@@ -58,3 +58,9 @@ const createErrorLink = () => onError(({graphQLErrors, networkError, operation})
     logError('GraphQL NetWorkError', networkError);
   }
 })
+
+// http link
+const createHttpLink = () => new HttpLink({
+  uri: '/graphql',
+  credentials: 'include',
+})
