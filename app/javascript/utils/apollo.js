@@ -64,3 +64,15 @@ const createHttpLink = () => new HttpLink({
   uri: '/graphql',
   credentials: 'include',
 })
+
+// apollo client instance
+export const createClient = (cache, requestLink) => {
+  return new ApolloClient({
+    link: ApolloLink.from([
+      createErrorLink(),
+      createLinkWithToken(),
+      createHttpLink(),
+    ]),
+    cache,
+  });
+};
